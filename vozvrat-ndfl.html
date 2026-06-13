@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vita">
+<title>Возврат НДФЛ — медицинский центр «Вита», Новоуральск</title>
+<style>
+:root{
+  --bg:#FFFFFF; --mist:#F2F9F4; --leaf:#DCEFE2;
+  --green:#1E8E5A; --deep:#14543A; --ink:#22302A;
+  --muted:#6B7F75; --line:#E3EEE7; --card:#FFFFFF;
+  --shadow:0 12px 40px rgba(20,84,58,.12);
+  --radius:18px;
+}
+[data-theme="dark"]{
+  --bg:#0F1713; --mist:#141F19; --leaf:#1D2E24;
+  --green:#4CC78A; --deep:#A7E6C6; --ink:#DCE9E1;
+  --muted:#8AA396; --line:#24332B; --card:#16221B;
+  --shadow:0 12px 40px rgba(0,0,0,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px;
+  transition:background .25s,color .25s}
+a{color:var(--green);text-decoration:none;transition:color .2s}
+a:hover{color:var(--deep)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 92%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar{display:flex;align-items:center;gap:20px;padding:12px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:14px}
+.logo img{height:48px;width:auto;border-radius:10px;background:#fff;padding:2px}
+.logo-sub{font-size:12px;color:var(--muted)}
+.logo-name{font-weight:800;font-size:18px;letter-spacing:.12em;color:var(--deep)}
+.top-contacts{margin-left:auto;display:flex;gap:20px;flex-wrap:wrap;font-size:13.5px;align-items:center}
+.top-contacts a{color:var(--ink);font-weight:600;white-space:nowrap}
+.top-contacts span{color:var(--muted);display:block;font-size:11.5px;font-weight:400}
+.theme-btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;
+  display:flex;align-items:center;gap:6px;transition:border-color .2s}
+.theme-btn:hover{border-color:var(--green)}
+
+nav.main{border-top:1px solid var(--line)}
+nav.main ul{list-style:none;display:flex;gap:2px;overflow-x:auto;padding:8px 0;scrollbar-width:thin}
+nav.main a{display:block;padding:8px 14px;border-radius:999px;font-size:12.5px;
+  font-weight:600;letter-spacing:.04em;color:var(--ink);white-space:nowrap}
+nav.main a:hover{background:var(--leaf);color:var(--deep)}
+nav.main a.active{background:var(--green);color:var(--bg)}
+
+.page-hero{background:var(--mist);padding:56px 0 48px}
+.page-hero h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.12;
+  color:var(--deep);letter-spacing:-.02em;max-width:820px}
+.page-hero h1 em{font-style:normal;color:var(--green)}
+.page-hero p.lead{margin-top:16px;max-width:660px;font-size:17px}
+.pulse{display:block;width:100%;height:54px;color:var(--green);opacity:.35;margin-top:28px}
+.badges{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.badge{background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:7px 16px;font-size:13px;font-weight:600;color:var(--deep)}
+
+main{padding:56px 0 72px}
+section+section{margin-top:64px}
+h2.section{font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--deep);
+  letter-spacing:-.01em;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:28px;max-width:620px}
+.eyebrow{display:inline-block;background:var(--leaf);color:var(--deep);border-radius:999px;
+  padding:6px 16px;font-size:12px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:18px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--green);transform:translateY(-2px)}
+.card h3{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px}
+.card p{font-size:15.5px;font-weight:600}
+.card p+p{margin-top:6px}
+.card a.big{font-size:17px;font-weight:700}
+
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{background:var(--mist);border:1px solid var(--line);border-radius:14px;
+  padding:14px 20px;font-weight:600;color:var(--deep);font-size:15px}
+.chip:hover{background:var(--leaf);border-color:var(--green)}
+
+.prose{max-width:760px}
+.prose p{margin-bottom:16px}
+.prose p.accent{font-size:18px;font-weight:600;color:var(--deep)}
+.prose ul{margin:0 0 16px 22px}
+.prose li{margin-bottom:8px}
+.note{background:var(--mist);border:1px solid var(--line);border-left:4px solid var(--green);
+  border-radius:12px;padding:18px 22px;margin:20px 0;max-width:760px}
+.note p{margin-bottom:8px}
+.note p:last-child{margin-bottom:0}
+.warn{border-left-color:#D9A23B}
+
+.doclinks{display:grid;gap:10px;max-width:760px}
+.doclink{display:flex;align-items:center;gap:12px;background:var(--card);
+  border:1px solid var(--line);border-radius:14px;padding:14px 18px;font-weight:600}
+.doclink:hover{border-color:var(--green)}
+.doclink::before{content:"⟶";color:var(--green);font-weight:700}
+
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.doc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;transition:border-color .2s}
+.doc:hover{border-color:var(--green)}
+.doc img{width:84px;height:84px;object-fit:cover;border-radius:50%;
+  border:3px solid var(--leaf);margin-bottom:14px;background:#fff}
+.doc h3{font-size:17px;font-weight:700;color:var(--deep);line-height:1.3}
+.doc .role{color:var(--green);font-weight:600;font-size:13.5px;margin:6px 0 12px}
+.doc details{border-top:1px solid var(--line);padding-top:10px;font-size:14px}
+.doc summary{cursor:pointer;font-weight:600;color:var(--muted);list-style:none;display:flex;gap:6px;align-items:center}
+.doc summary::before{content:"+";color:var(--green);font-weight:800;font-size:16px}
+.doc details[open] summary::before{content:"−"}
+.doc details p{margin-top:8px;color:var(--ink)}
+.doc .work{font-size:13px;color:var(--muted);margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+
+.sched{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.sched .card p.t{color:var(--green);font-weight:700;font-size:14px;text-transform:none;letter-spacing:0}
+.sched .card p.small{font-weight:500;color:var(--muted);font-size:14px}
+
+.news-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 24px;margin-bottom:14px;max-width:760px}
+.news-item h3{font-size:16.5px;color:var(--deep)}
+.news-item p{color:var(--muted);font-size:14.5px;margin-top:4px}
+.news-item a{font-weight:600;font-size:14px}
+
+.empty{background:var(--mist);border:1px dashed var(--line);border-radius:var(--radius);
+  padding:40px;text-align:center;color:var(--muted);max-width:760px}
+
+footer{padding:40px 0 28px;border-top:1px solid var(--line)}
+.foot-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot-row small{color:var(--muted)}
+.foot-row a.up{font-weight:600;font-size:14px}
+
+.cookies{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:680px;margin:0 auto;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 20px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:center;
+  flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.cookies button{margin-left:auto;border:0;cursor:pointer;background:var(--green);
+  color:var(--bg);font-weight:700;font-size:14px;padding:9px 22px;border-radius:999px}
+.cookies button:hover{filter:brightness(.9)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+@media (max-width:640px){.top-contacts div{display:none}.page-hero{padding:40px 0 40px}}
+</style>
+<script>
+(function(){
+  var root=document.documentElement;
+  var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if(prefersDark){root.setAttribute('data-theme','dark');}
+  window.toggleTheme=function(){
+    var d=root.getAttribute('data-theme')==='dark';
+    root.setAttribute('data-theme', d?'light':'dark');
+    var b=document.getElementById('themeBtn');
+    if(b){b.textContent = d?'\u263E Тёмная':'\u2600 Светлая';}
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var b=document.getElementById('themeBtn');
+    if(b && root.getAttribute('data-theme')==='dark'){b.textContent='\u2600 Светлая';}
+  });
+})();
+</script>
+</head>
+<body id="top">
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="logo" href="index.html" aria-label="Вита — на главную">
+        <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/Logo3.jpg" alt="Логотип медицинского центра «Вита»">
+        <span><span class="logo-name">ВИТА</span><br>
+        <span class="logo-sub">г. Новоуральск, ул. Октябрьская, 6б · 2 этаж</span></span>
+      </a>
+      <div class="top-contacts">
+        <div><a href="tel:+73437021111">+7 (34370) 2-11-11</a><span>регистратура</span></div>
+        <div><a href="tel:+79530441400">+7 (953) 044-14-00</a><span>и анализы</span></div>
+        <div><a href="tel:+73437054054">+7 (34370) 5-40-54</a><span>медосмотры</span></div>
+        <button class="theme-btn" id="themeBtn" type="button" onclick="toggleTheme()">&#9790; Тёмная</button>
+      </div>
+    </div>
+    <nav class="main" aria-label="Основное меню"><ul>
+<li><a href="index.html">ВИТА</a></li>
+<li><a href="o-nas.html">О нас</a></li>
+<li><a href="spetsialisty.html">Специалисты</a></li>
+<li><a href="uslugi-i-tseny.html">Услуги и цены</a></li>
+<li><a href="grafik-raboty.html">График работы</a></li>
+<li><a href="novosti.html">Новости</a></li>
+<li><a href="eto-vazhno-znat.html">Это важно знать!</a></li>
+<li><a href="profosmotry.html">Профосмотры</a></li>
+<li><a href="voditelyam.html">Водителям</a></li>
+<li><a class="active" href="vozvrat-ndfl.html">Возврат НДФЛ</a></li>
+<li><a href="pamyatki.html">Памятки</a></li>
+<li><a href="https://yandex.ru/maps/11170/novouralsk/?ll=60.056656%2C57.242733&mode=poi&poi%5Bpoint%5D=60.055934%2C57.242914&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1030379428&tab=reviews&z=20.02" target="_blank" rel="noopener">Отзывы</a></li>
+<li><a href="vakansii.html">Вакансии</a></li>
+<li><a href="pravila.html">Правила</a></li>
+<li><a href="gos-kontrol.html">Гос контроль</a></li>
+    </ul></nav>
+  </div>
+</header>
+<section class="page-hero"><div class="wrap"><h1>Возврат <em>НДФЛ</em></h1><p class="lead">Социальный налоговый вычет за оплаченные медицинские услуги.</p></div></section>
+<main><div class="wrap">
+
+<section>
+  <div class="prose">
+    <p>Налогоплательщик имеет право на получение социального налогового вычета в сумме, уплаченной налогоплательщиком в налоговом периоде за медицинские услуги, оказанные медицинскими организациями.</p>
+    <p>Лечение было оплачено за счет собственных средств налогоплательщика.</p>
+    <p>Сумму расходов на лечение можно заявить к вычету в отношении доходов только за тот налоговый период (календарный год), в котором вы произвели оплату лечения.</p>
+    <p>Оплаченные медицинские услуги должны входить в установленные перечни медицинских услуг или дорогостоящих видов лечения (<a href="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/Vozvrat_NDFL/Postanovlenie_pravitelstva_RF_08.04.2020_N_458.doc" target="_blank" rel="noopener">Постановление Правительства РФ от 08.04.2020 N 458</a>).</p>
+  </div>
+  <div class="note">
+    <p><strong>Для получения налогового вычета</strong> необходимо предоставить в регистратуру ООО «Вита» заявление, приложив к нему копии кассовых чеков за оплаченные услуги.</p>
+  </div>
+</section>
+</div></main>
+<footer><div class="wrap foot-row">
+  <small>© 2026 Vita · <a href="https://www.kniga-pocheta.ru/" target="_blank" rel="noopener">Книга почёта</a> · <a href="mailto:vitacentr2011@mail.ru">vitacentr2011@mail.ru</a></small>
+  <a class="up" href="#top">Наверх ↑</a>
+</div></footer>
+<div class="cookies" id="cookies" role="region" aria-label="Уведомление о cookie">
+  <span>Этот сайт использует файлы cookie. Продолжая использовать этот сайт, вы соглашаетесь на их использование. Подробнее — в нашей
+  <a href="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/politika_konf_Vita.pdf" target="_blank" rel="noopener">Политике конфиденциальности</a>.</span>
+  <button type="button" onclick="document.getElementById('cookies').remove()">Согласен</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vita">
+<title>Специалисты — медицинский центр «Вита», Новоуральск</title>
+<style>
+:root{
+  --bg:#FFFFFF; --mist:#F2F9F4; --leaf:#DCEFE2;
+  --green:#1E8E5A; --deep:#14543A; --ink:#22302A;
+  --muted:#6B7F75; --line:#E3EEE7; --card:#FFFFFF;
+  --shadow:0 12px 40px rgba(20,84,58,.12);
+  --radius:18px;
+}
+[data-theme="dark"]{
+  --bg:#0F1713; --mist:#141F19; --leaf:#1D2E24;
+  --green:#4CC78A; --deep:#A7E6C6; --ink:#DCE9E1;
+  --muted:#8AA396; --line:#24332B; --card:#16221B;
+  --shadow:0 12px 40px rgba(0,0,0,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.65;font-size:16px;
+  transition:background .25s,color .25s}
+a{color:var(--green);text-decoration:none;transition:color .2s}
+a:hover{color:var(--deep)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 92%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar{display:flex;align-items:center;gap:20px;padding:12px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:14px}
+.logo img{height:48px;width:auto;border-radius:10px;background:#fff;padding:2px}
+.logo-sub{font-size:12px;color:var(--muted)}
+.logo-name{font-weight:800;font-size:18px;letter-spacing:.12em;color:var(--deep)}
+.top-contacts{margin-left:auto;display:flex;gap:20px;flex-wrap:wrap;font-size:13.5px;align-items:center}
+.top-contacts a{color:var(--ink);font-weight:600;white-space:nowrap}
+.top-contacts span{color:var(--muted);display:block;font-size:11.5px;font-weight:400}
+.theme-btn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;
+  display:flex;align-items:center;gap:6px;transition:border-color .2s}
+.theme-btn:hover{border-color:var(--green)}
+
+nav.main{border-top:1px solid var(--line)}
+nav.main ul{list-style:none;display:flex;gap:2px;overflow-x:auto;padding:8px 0;scrollbar-width:thin}
+nav.main a{display:block;padding:8px 14px;border-radius:999px;font-size:12.5px;
+  font-weight:600;letter-spacing:.04em;color:var(--ink);white-space:nowrap}
+nav.main a:hover{background:var(--leaf);color:var(--deep)}
+nav.main a.active{background:var(--green);color:var(--bg)}
+
+.page-hero{background:var(--mist);padding:56px 0 48px}
+.page-hero h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.12;
+  color:var(--deep);letter-spacing:-.02em;max-width:820px}
+.page-hero h1 em{font-style:normal;color:var(--green)}
+.page-hero p.lead{margin-top:16px;max-width:660px;font-size:17px}
+.pulse{display:block;width:100%;height:54px;color:var(--green);opacity:.35;margin-top:28px}
+.badges{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.badge{background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:7px 16px;font-size:13px;font-weight:600;color:var(--deep)}
+
+main{padding:56px 0 72px}
+section+section{margin-top:64px}
+h2.section{font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--deep);
+  letter-spacing:-.01em;margin-bottom:8px}
+.section-sub{color:var(--muted);margin-bottom:28px;max-width:620px}
+.eyebrow{display:inline-block;background:var(--leaf);color:var(--deep);border-radius:999px;
+  padding:6px 16px;font-size:12px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:18px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--green);transform:translateY(-2px)}
+.card h3{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px}
+.card p{font-size:15.5px;font-weight:600}
+.card p+p{margin-top:6px}
+.card a.big{font-size:17px;font-weight:700}
+
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{background:var(--mist);border:1px solid var(--line);border-radius:14px;
+  padding:14px 20px;font-weight:600;color:var(--deep);font-size:15px}
+.chip:hover{background:var(--leaf);border-color:var(--green)}
+
+.prose{max-width:760px}
+.prose p{margin-bottom:16px}
+.prose p.accent{font-size:18px;font-weight:600;color:var(--deep)}
+.prose ul{margin:0 0 16px 22px}
+.prose li{margin-bottom:8px}
+.note{background:var(--mist);border:1px solid var(--line);border-left:4px solid var(--green);
+  border-radius:12px;padding:18px 22px;margin:20px 0;max-width:760px}
+.note p{margin-bottom:8px}
+.note p:last-child{margin-bottom:0}
+.warn{border-left-color:#D9A23B}
+
+.doclinks{display:grid;gap:10px;max-width:760px}
+.doclink{display:flex;align-items:center;gap:12px;background:var(--card);
+  border:1px solid var(--line);border-radius:14px;padding:14px 18px;font-weight:600}
+.doclink:hover{border-color:var(--green)}
+.doclink::before{content:"⟶";color:var(--green);font-weight:700}
+
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.doc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;transition:border-color .2s}
+.doc:hover{border-color:var(--green)}
+.doc img{width:84px;height:84px;object-fit:cover;border-radius:50%;
+  border:3px solid var(--leaf);margin-bottom:14px;background:#fff}
+.doc h3{font-size:17px;font-weight:700;color:var(--deep);line-height:1.3}
+.doc .role{color:var(--green);font-weight:600;font-size:13.5px;margin:6px 0 12px}
+.doc details{border-top:1px solid var(--line);padding-top:10px;font-size:14px}
+.doc summary{cursor:pointer;font-weight:600;color:var(--muted);list-style:none;display:flex;gap:6px;align-items:center}
+.doc summary::before{content:"+";color:var(--green);font-weight:800;font-size:16px}
+.doc details[open] summary::before{content:"−"}
+.doc details p{margin-top:8px;color:var(--ink)}
+.doc .work{font-size:13px;color:var(--muted);margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+
+.sched{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.sched .card p.t{color:var(--green);font-weight:700;font-size:14px;text-transform:none;letter-spacing:0}
+.sched .card p.small{font-weight:500;color:var(--muted);font-size:14px}
+
+.news-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 24px;margin-bottom:14px;max-width:760px}
+.news-item h3{font-size:16.5px;color:var(--deep)}
+.news-item p{color:var(--muted);font-size:14.5px;margin-top:4px}
+.news-item a{font-weight:600;font-size:14px}
+
+.empty{background:var(--mist);border:1px dashed var(--line);border-radius:var(--radius);
+  padding:40px;text-align:center;color:var(--muted);max-width:760px}
+
+footer{padding:40px 0 28px;border-top:1px solid var(--line)}
+.foot-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot-row small{color:var(--muted)}
+.foot-row a.up{font-weight:600;font-size:14px}
+
+.cookies{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:680px;margin:0 auto;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 20px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:center;
+  flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.cookies button{margin-left:auto;border:0;cursor:pointer;background:var(--green);
+  color:var(--bg);font-weight:700;font-size:14px;padding:9px 22px;border-radius:999px}
+.cookies button:hover{filter:brightness(.9)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+@media (max-width:640px){.top-contacts div{display:none}.page-hero{padding:40px 0 40px}}
+</style>
+<script>
+(function(){
+  var root=document.documentElement;
+  var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if(prefersDark){root.setAttribute('data-theme','dark');}
+  window.toggleTheme=function(){
+    var d=root.getAttribute('data-theme')==='dark';
+    root.setAttribute('data-theme', d?'light':'dark');
+    var b=document.getElementById('themeBtn');
+    if(b){b.textContent = d?'\u263E Тёмная':'\u2600 Светлая';}
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var b=document.getElementById('themeBtn');
+    if(b && root.getAttribute('data-theme')==='dark'){b.textContent='\u2600 Светлая';}
+  });
+})();
+</script>
+</head>
+<body id="top">
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="logo" href="index.html" aria-label="Вита — на главную">
+        <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/Logo3.jpg" alt="Логотип медицинского центра «Вита»">
+        <span><span class="logo-name">ВИТА</span><br>
+        <span class="logo-sub">г. Новоуральск, ул. Октябрьская, 6б · 2 этаж</span></span>
+      </a>
+      <div class="top-contacts">
+        <div><a href="tel:+73437021111">+7 (34370) 2-11-11</a><span>регистратура</span></div>
+        <div><a href="tel:+79530441400">+7 (953) 044-14-00</a><span>и анализы</span></div>
+        <div><a href="tel:+73437054054">+7 (34370) 5-40-54</a><span>медосмотры</span></div>
+        <button class="theme-btn" id="themeBtn" type="button" onclick="toggleTheme()">&#9790; Тёмная</button>
+      </div>
+    </div>
+    <nav class="main" aria-label="Основное меню"><ul>
+<li><a href="index.html">ВИТА</a></li>
+<li><a href="o-nas.html">О нас</a></li>
+<li><a class="active" href="spetsialisty.html">Специалисты</a></li>
+<li><a href="uslugi-i-tseny.html">Услуги и цены</a></li>
+<li><a href="grafik-raboty.html">График работы</a></li>
+<li><a href="novosti.html">Новости</a></li>
+<li><a href="eto-vazhno-znat.html">Это важно знать!</a></li>
+<li><a href="profosmotry.html">Профосмотры</a></li>
+<li><a href="voditelyam.html">Водителям</a></li>
+<li><a href="vozvrat-ndfl.html">Возврат НДФЛ</a></li>
+<li><a href="pamyatki.html">Памятки</a></li>
+<li><a href="https://yandex.ru/maps/11170/novouralsk/?ll=60.056656%2C57.242733&mode=poi&poi%5Bpoint%5D=60.055934%2C57.242914&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1030379428&tab=reviews&z=20.02" target="_blank" rel="noopener">Отзывы</a></li>
+<li><a href="vakansii.html">Вакансии</a></li>
+<li><a href="pravila.html">Правила</a></li>
+<li><a href="gos-kontrol.html">Гос контроль</a></li>
+    </ul></nav>
+  </div>
+</header>
+<section class="page-hero"><div class="wrap"><h1>Наши <em>специалисты</em></h1><p class="lead">Врачи высокой квалификации из Новоуральска и ведущих клиник Екатеринбурга.</p></div></section>
+<main><div class="wrap">
+
+<section>
+  <h2 class="section">Специалисты из г. Новоуральска</h2>
+  <p class="section-sub">Нажмите «Обучение, повышение квалификации», чтобы раскрыть подробности.</p>
+  <div class="doc-grid"><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/1.png" alt="Мичурина Ирина Михайловна" loading="lazy">
+  <h3>Мичурина Ирина Михайловна</h3><div class="role">Врач-ревматолог высшей категории, член Ассоциации ревматологов России. Врач-терапевт</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1993 году окончила лечебно-профилактический факультет Свердловского государственного медицинского института по специальности “Лечебное дело”.</p><p>1993–1994 гг. — интернатура по специальности “Терапия” на базе ЦМСЧ-31 (г. Новоуральск).</p><p>1999 г. — первичная специализация по специальности “Ревматология” в УГМАДО (г. Челябинск).</p><p>Последние сертификационные курсы повышения квалификации: 2011 год — по специальности “Терапия”, ГБОУ ВПО УГМА (г. Екатеринбург). Сертификат A №166643 29.11.2011 г.</p><p>2014 год — по специальности “Ревматология”, ГБОУ ВПО УГМУ (г. Екатеринбург). Сертификат №0166180121793 07.03.2014.</p></details><div class="work">Основное место работы: Медицинский центр «Вита».</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/none.png" alt="Луговых Евгения Владимировна" loading="lazy">
+  <h3>Луговых Евгения Владимировна</h3><div class="role">Врач-акушер-гинеколог, кандидат медицинских наук</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 2018 г. окончила ФГБОУ ВО Уральский государственный медицинский университет Министерства здравоохранения Российской Федерации по специальности «Лечебное дело».</p><p>Аспирантура по специальности «Акушерство и гинекология», ФГБУ «Уральский научно-исследовательский институт охраны материнства и младенчества» Минздрава России (2024 г.)</p><p>Первичная специализированная аккредитация по специальности «Акушерство и гинекология», ФГБОУ ВО «Южно-Уральский государственный медицинский университет» МЗ РФ (действительна до 06.09.2027 г.)</p></details><div class="work">Основное место работы: ФГБУЗ ЦМСЧ-31 ФМБА России, гинекологическое отделение</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/4.png" alt="Абрамова Татьяна Васильевна" loading="lazy">
+  <h3>Абрамова Татьяна Васильевна</h3><div class="role">Врач-невролог высшей категории</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1988 г. окончила Алтайский государственный медицинский институт по специальности «Лечебное дело».</p><p>Последние сертификационные курсы повышения квалификации: 2014 г. — по специальности «Неврология», ГБОУ ВПО УГМУ, г. Екатеринбург. Сертификат №0166180213320.</p></details><div class="work">Основное место работы: ФГБУЗ ЦМСЧ-31 ФМБА России, неврологическое отделение.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/5.png" alt="Щанкина Любовь Ильинична" loading="lazy">
+  <h3>Щанкина Любовь Ильинична</h3><div class="role">Врач-эндокринолог высшей категории. Врач-терапевт высшей категории</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1983 г. окончила Куйбышевский медицинский институт по специальности «Лечебное дело».</p><p>1983–1984 гг. — интернатура по специальности «Терапия» на базе МСО-31 Минздрава СССР.</p><p>1987–1989 гг. — клиническая ординатура по специальности «Терапия» при Третьем главном управлении Минздрава СССР.</p><p>1997 г. — первичная специализация по специальности «Эндокринология» на кафедре эндокринологии Российской медицинской академии последипломного образования, г. Москва.</p><p>Последние сертификационные курсы повышения квалификации: 2013 г. — по специальности «Эндокринология», Уральская государственная медицинская академия, г. Екатеринбург, сертификат А №1893547 06.04.2013 г.</p><p>2012 г. — по специальности «Терапия», Уральская государственная медицинская академия, г. Екатеринбург, сертификат А №1387039 29.03.12 г.</p></details><div class="work">Основное место работы: Медицинский центр «Вита», с сентября 2013 г.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/6.png" alt="Селифанова Ольга Васильевна" loading="lazy">
+  <h3>Селифанова Ольга Васильевна</h3><div class="role">Врач-гастроэнтеролог высшей категории</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1971 г. с отличием окончила Свердловский государственный медицинский институт по специальности «Лечебное дело».</p><p>2006 г. — первичная специализация по специальности «Гастроэнтерология», Уральская государственная медицинская академия, г. Екатеринбург.</p><p>Последние сертификационные курсы повышения квалификации: 2011 г. — по клинической гастроэнтерологии, ГОУ ВПО Уральская государственная медицинская академия, г. Екатеринбург. Сертификат А №3006263 29.03.2011.</p></details><div class="work">Основное место работы: Медицинский центр «Вита», с сентября 2013 г.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/7.png" alt="Синякина Елена Владимировна" loading="lazy">
+  <h3>Синякина Елена Владимировна</h3><div class="role">Врач-кардиолог первой категории</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1992 г. окончила Свердловский государственный медицинский институт по специальности «Лечебное дело».</p><p>1992–1993 гг. — интернатура по специальности «Терапия» на базе ЦМСЧ-31, г. Новоуральск.</p><p>2006 г. — первичная специализация по специальности «Кардиология», Уральская государственная медицинская академия.</p><p>Последние сертификационные курсы повышения квалификации: 2011 г. — по неотложной кардиологии, Уральская государственная медицинская академия. Сертификат СПб №038212, 20.06.2011 г.</p></details><div class="work">Основное место работы: ФГБУЗ ЦМСЧ-31 ФМБА России, кардиологическое отделение.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/9.png" alt="Шушерин Сергей Владимирович" loading="lazy">
+  <h3>Шушерин Сергей Владимирович</h3><div class="role">Врач ультразвуковой диагностики высшей категории</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1999 г. окончил Уральскую государственную медицинскую академию по специальности «Лечебное дело».</p><p>1999–2000 гг. — профессиональная переподготовка по рентгенологии.</p><p>2000 г. — профессиональная переподготовка по ультразвуковой диагностике при Уральской государственной медицинской академии, г. Екатеринбург.</p><p>2002 г. — курсы повышения квалификации по клинической эхокардиографии на базе Медицинского центра УД президента РФ, г. Москва.</p><p>Последние сертификационные курсы повышения квалификации: 2011 г. — по специальности «Ультразвуковая диагностика», ФГОУ ДПО Институт повышения квалификации ФМБА России, г. Москва. Сертификат А №1188965, 09.04.2011.</p></details>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/10.png" alt="Пузиков Евгений Викторович" loading="lazy">
+  <h3>Пузиков Евгений Викторович</h3><div class="role">Врач-колопроктолог высшей категории</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1985 г. окончил Свердловский государственный медицинский институт по специальности «Лечебное дело».</p><p>1985–1986 гг. — интернатура по специальности «Хирургия» на базе ГКБ №40, г. Свердловск.</p><p>1989–1991 гг. — клиническая ординатура при Свердловском государственном медицинском институте по специальности «Хирургия».</p><p>2007 г. — профессиональная переподготовка по специальности «Колопроктология» в ГБОУ ВПО Уральская государственная медицинская академия, г. Екатеринбург.</p><p>Последние сертификационные курсы повышения квалификации: 2012 г. — «Актуальные вопросы колопроктологии» в ГБОУ ВПО Уральская государственная медицинская академия, г. Екатеринбург. Сертификат № Ц-32-3823, 30.04.2012 г.</p></details><div class="work">Основное место работы: ФГБУЗ ЦМСЧ-31 ФМБА России, отделение гнойной хирургии, городская поликлиника №3.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/none.png" alt="Котова Наталья Александровна" loading="lazy">
+  <h3>Котова Наталья Александровна</h3><div class="role">Врач функциональной диагностики</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1982 г. окончила Калининский государственный медицинский институт по специальности «Лечебное дело».</p><p>1989 г. — первичная специализация по клинической физиологии, медицинской электронике и функциональной диагностике в ГИДУВ, г. Киев.</p><p>Последние сертификационные курсы повышения квалификации: 2012 г. — по функциональной диагностике, ГБОУ ВПО Уральская государственная медицинская академия, г. Екатеринбург. Сертификат МА №000414, 05.04.2012 г.</p></details><div class="work">Основное место работы: ФГБУЗ ЦМСЧ-31 ФМБА России, отделение функциональной диагностики.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/none.png" alt="Гаврюшова Ольга Анатольевна" loading="lazy">
+  <h3>Гаврюшова Ольга Анатольевна</h3><div class="role">Врач функциональной диагностики высшей категории. Врач ультразвуковой диагностики</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1982 г. окончила Тюменский государственный медицинский институт по специальности «Лечебное дело».</p><p>1982–1983 гг. — интернатура по специальности «Терапия» на базе МСО №31 Минздрава.</p><p>1988 г. — первичная специализация «Функциональная диагностика в кардиологии» в Запорожском ГИДУВ им. М. Горького.</p><p>2006 г. — профессиональная переподготовка по специальности «Ультразвуковая диагностика», ГОУ ВПО Уральская государственная медицинская академия, г. Екатеринбург.</p><p>Последние сертификационные курсы повышения квалификации: 2013 г. — по специальности «Функциональная диагностика», ГБОУ ВПО Тюменская государственная медицинская академия. Сертификат А №1748078, 08.02.2013 г.</p><p>2011 г. — по специальности «Ультразвуковая диагностика», ГОУ ВПО Уральская государственная медицинская академия, г. Екатеринбург. Сертификат А №3006148, 23.04.2011.</p></details><div class="work">Основное место работы: Медицинский центр «Вита», с сентября 2014 г.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/none.png" alt="Зимарев Кирилл Андреевич" loading="lazy">
+  <h3>Зимарев Кирилл Андреевич</h3><div class="role">Врач-хирург (детский), андролог</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 2010 г. окончил Уральскую государственную медицинскую академию, г. Екатеринбург, по специальности «Педиатрия».</p><p>2010–2012 гг. — клиническая ординатура в Уральской государственной медицинской академии (г. Екатеринбург) по специальности «Детская хирургия». Сертификат ПП №007380, 25.07.2012 г.</p></details><div class="work">Основное место работы: ФГБУЗ ЦМСЧ-31 ФМБА России, детская поликлиника, хирургическое отделение №1.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/12.png" alt="Неустроева Ирина Ильинична" loading="lazy">
+  <h3>Неустроева Ирина Ильинична</h3><div class="role">Врач акушер-гинеколог высшей категории</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1986 г. с отличием окончила Свердловский государственный медицинский институт по специальности «Лечебное дело».</p><p>2014 г. — участие в обучающем семинаре «Клинические данные и практика: применение и консультирование; введение, удаление и замена имплантата».</p><p>Последние сертификационные курсы повышения квалификации: 2013 г. — по специальности «Акушерство и гинекология», Российская медицинская академия последипломного образования, г. Москва. Сертификат №0377240088751, 05.10.2013 г.</p></details><div class="work">Основное место работы: ФГБУЗ ЦМСЧ-31 ФМБА России, женская консультация, заведующая.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/13.png" alt="Гаренских Леонид Кимович" loading="lazy">
+  <h3>Гаренских Леонид Кимович</h3><div class="role">Врач акушер-гинеколог высшей категории</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1985 г. с отличием окончил Свердловский государственный медицинский институт по специальности «Лечебное дело».</p><p>Последние сертификационные курсы повышения квалификации: 2012 г. — ГБОУ ВПО Уральская государственная медицинская академия, г. Екатеринбург. Сертификат А №164376, 30.10.2012.</p></details><div class="work">Основное место работы: ФГБУЗ ЦМСЧ-31 ФМБА России, гинекологическое отделение.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/14.png" alt="Ощепкова Надежда Борисовна" loading="lazy">
+  <h3>Ощепкова Надежда Борисовна</h3><div class="role">Врач-педиатр</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1981 г. окончила Семипалатинский государственный медицинский институт по специальности «Педиатрия».</p><p>1981–1982 гг. — интернатура по специальности «Педиатрия».</p><p>Последние сертификационные курсы повышения квалификации: 2010 г. — ГОУ ВПО Уральская государственная медицинская академия, г. Екатеринбург. Сертификат А №1560141.</p></details><div class="work">Основное место работы: Новоуральский медицинский колледж, преподаватель. Консультант в медицинском центре «Вита» с 2012 г.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/none.png" alt="Кандаков Сергей Сергеевич" loading="lazy">
+  <h3>Кандаков Сергей Сергеевич</h3><div class="role">Врач-офтальмолог</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 2014 году окончил Уральский государственный медицинский университет по специальности «Лечебное дело».</p><p>2014–2015 гг. — интернатура по специальности «Офтальмология» в ГБОУ ВПО УГМУ г. Екатеринбург, сертификат №0166180178936 31.08.2015 г.</p></details><div class="work">Основное место работы: ФГБУЗ ЦМСЧ №31 ФМБА России, глазное отделение, поликлиника.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/none.png" alt="Акматов Руслан Мамасабирович" loading="lazy">
+  <h3>Акматов Руслан Мамасабирович</h3><div class="role">Врач-уролог. Врач ультразвуковой диагностики</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 2009 году окончил ГОУ ВПО Кыргызско-Российский Славянский университет г. Бишкек по специальности «Лечебное дело».</p><p>2009–2011 гг. — обучение в клинической ординатуре при УГМА г. Екатеринбург по специальности «Урология», сертификат А №4414884 31.08.2011 г.</p><p>2015 г. — профессиональная подготовка по ультразвуковой диагностике в ООО «Экспромед» г. Екатеринбург, сертификат №1166240846165 30.12.2015 г.</p></details><div class="work">Основное место работы: НУЗ «Дорожная больница» ОАО РЖД, поликлиника.</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/none.png" alt="Смирнова Наталия Вадимовна" loading="lazy">
+  <h3>Смирнова Наталия Вадимовна</h3><div class="role">Врач-невролог</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1997 году окончила Уральскую государственную медицинскую академию по специальности «Лечебное дело».</p><p>1997–1998 гг. — интернатура по специальности «Невропатология» на базе ЦГБ г. Новоуральск.</p><p>Последние сертификационные курсы повышения квалификации: 2013 г. — по специальности «Неврология» в Уральском государственном медицинском университете: «Актуальные вопросы наследственно-дегенеративной патологии нервной системы». «Современные технологии диагностики, лечения и профилактики в ангионеврологии». Сертификат А №052241 26.10.2013 г.</p></details><div class="work">Основное место работы: городская поликлиника г. Невьянск.</div>
+</article></div>
+</section>
+<section>
+  <h2 class="section">Специалисты из г. Екатеринбурга</h2>
+  <div class="doc-grid"><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/19.png" alt="Макаров Сергей Евгеньевич" loading="lazy">
+  <h3>Макаров Сергей Евгеньевич</h3><div class="role">Врач сосудистый хирург, флеболог первой категории, действительный член Российского общества ангиологии сосудистых хирургов, Российской академии флебологов</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1997 г. окончил Уральскую государственную медицинскую академию по специальности «Лечебное дело».</p><p>1997–1999 гг. — клиническая ординатура при УГМА по специальности «Хирургия».</p><p>2000 г. — профессиональная переподготовка по сердечно-сосудистой хирургии в УГМА.</p><p>Консультирует пациентов с сосудистой патологией, по вопросам профилактики и лечения, проводит все виды операционного и безоперационного лечения варикозной болезни.</p></details><div class="work">Основное место работы: г. Екатеринбург, медицинский центр «АнгиоЛайн».</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/22.png" alt="Соколова Оксана Валерьевна" loading="lazy">
+  <h3>Соколова Оксана Валерьевна</h3><div class="role">Врач-невролог, детский невролог</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 1996 г. окончила Уральскую государственную медицинскую академию по специальности «Педиатрия».</p><p>1996–1997 гг. — интернатура в УПО «Особый ребенок», г. Екатеринбург, по специальности «Невропатология».</p><p>1999–2001 гг. — клиническая ординатура по специальности «Неврология» в УГМА.</p><p>Последние сертификационные курсы повышения квалификации: 2012 г. — по «Избранным вопросам неврологии» в Уральской государственной медицинской академии. Сертификат №1029 27.10.2012.</p></details><div class="work">Основное место работы: Медицинский центр «Доктор Ост».</div>
+</article><article class="doc">
+  <img src="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/myfolder/peoples/24.png" alt="Коцюба Ирина Ивановна" loading="lazy">
+  <h3>Коцюба Ирина Ивановна</h3><div class="role">Врач-кардиолог, аритмолог</div>
+  <details><summary>Обучение, повышение квалификации</summary><p>В 2005 г. окончила Уральскую государственную медицинскую академию по специальности «Лечебное дело».</p><p>2008 г. — профессиональная переподготовка по клинической кардиологии в УГМА.</p><p>2010 г. — повышение квалификации по курсу «Клиническая электрофизиология, интервенционная и хирургическая аритмология» на базе Научного центра сердечно-сосудистой хирургии им. А.Н. Бакулева.</p><p>Последние сертификационные курсы повышения квалификации: 2013 г. — «Клиническая кардиология», ГБОУ ВПО УГМА, г. Екатеринбург. Сертификат А №3487937, 25.05.2013.</p></details><div class="work">Основное место работы: Областная клиническая больница №1, поликлиническое отделение, отделение неотложной кардиологии.</div>
+</article></div>
+</section>
+</div></main>
+<footer><div class="wrap foot-row">
+  <small>© 2026 Vita · <a href="https://www.kniga-pocheta.ru/" target="_blank" rel="noopener">Книга почёта</a> · <a href="mailto:vitacentr2011@mail.ru">vitacentr2011@mail.ru</a></small>
+  <a class="up" href="#top">Наверх ↑</a>
+</div></footer>
+<div class="cookies" id="cookies" role="region" aria-label="Уведомление о cookie">
+  <span>Этот сайт использует файлы cookie. Продолжая использовать этот сайт, вы соглашаетесь на их использование. Подробнее — в нашей
+  <a href="https://www.xn----7sbbfc7ashpkbypev1m.xn--p1ai/images/politika_konf_Vita.pdf" target="_blank" rel="noopener">Политике конфиденциальности</a>.</span>
+  <button type="button" onclick="document.getElementById('cookies').remove()">Согласен</button>
+</div>
+</body>
+</html>
